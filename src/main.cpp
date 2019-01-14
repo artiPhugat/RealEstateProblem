@@ -23,25 +23,6 @@ int main()
     PropertiesRepo *P = new PropertiesRepo;
     RequirementsRepo *R = new RequirementsRepo;
 
-    P->add_dummy_property(get_new_id());
-    P->add_dummy_property(get_new_id());
-    P->add_dummy_property(get_new_id());
-
-    P->display_all();
-
-    Requirements *req = R->add_dummy_requirement(get_new_id());
-    R->display_all();
-    vector<Properties> Prop1 = get_valid_properties(req);
-    cout<< "Size : "<<Prop1.size()<<"\n";
-    display_properties_list(Prop1);
-    req->matchProperties = Prop1;
-    /*
-       Properties *Prop = P->add_dummy_property(get_new_id());
-       cout<<"\n\n\ ID : " <<Prop->Id;
-       P->display_all();
-       Properties *newP = P->get_by_id(Prop->Id);
-       display_property(newP);
-       */
 
     do
     {
