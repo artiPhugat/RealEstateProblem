@@ -1,6 +1,7 @@
 #ifndef REQUIREMENT_H
 #define REQUIREMENT_H
-#include"header.h"
+#include"../include/header.h"
+#include"../include/properties.h"
 
 enum REQTYPE
 {
@@ -16,18 +17,23 @@ enum REQSTATUS
 
 class Requirements
 {
+    public:
     string Id;
     double Latitude;
     double Longitude;
-    float minBudget;
-    float maxBudget;
+    double minBudget;
+    double maxBudget;
     int min_num_of_bedrooms;
     int max_num_of_bedrooms;
     int min_num_of_bathrooms;
     int max_num_of_bathrooms;
     REQTYPE Type;
     REQSTATUS Status;
+    vector<Properties> matchProperties;
     //List<Properties> ListofProperties;
 };
 
+Requirements *get_attributes(string id);
+
+void display_requirement(Requirements *it);
 #endif

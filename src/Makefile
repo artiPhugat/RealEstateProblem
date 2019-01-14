@@ -13,16 +13,19 @@ properties.o:
 properties_repo.o: properties.o
 	g++ -c properties.o properties_repo.cpp
 
+calculation.o:
+	g++ -c calculation.cpp
+
 requirement.o:
 	g++ -c requirement.cpp
 
 requirement_repo.o: requirement.o
 	g++ -c requirement.o requirement_repo.cpp
 
-OBJS := properties.o requirement.o properties_repo.o requirement_repo.o
+OBJS := properties.o requirement.o properties_repo.o requirement_repo.o calculation.o
 
 all: $(OBJS) main.cpp
 	$(CC) $(CFLAGS) main.cpp $(OBJS)  -o output -v
 
 clean:
-	rm -vf *.o output
+	rm -vrf *.o output *.dSYM

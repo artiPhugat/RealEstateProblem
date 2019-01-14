@@ -20,7 +20,7 @@ class Properties
     string Id;
     double Latitude;
     double Longitude;
-    float Price;
+    double Price;
     int num_of_bedrooms;
     int num_of_bathrooms;
     PROPTYPE Type;
@@ -30,5 +30,5 @@ class Properties
 // Function declaration
 Properties *get_property_attributes(string id);
 void display_property(Properties *P);
-
+void display_properties_list(vector<Properties> PropVec);
 #endif

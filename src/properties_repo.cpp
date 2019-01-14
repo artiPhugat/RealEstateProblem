@@ -3,8 +3,8 @@
 Properties *PropertiesRepo::get_by_id(string id){
     vector<Properties>::iterator it;
     for (it = propVec.begin(); it != propVec.end(); ++it)
-    { 
-        //if(id.compare(it->Id) == 0)
+    {
+        if(id.compare(it->Id) == 0)
         {
             Properties *Prop = new Properties;
             Prop->Id = it->Id;
@@ -23,7 +23,7 @@ Properties *PropertiesRepo::get_by_id(string id){
 }
 
 
-void PropertiesRepo::add_dummy_property(string Id){
+Properties* PropertiesRepo::add_dummy_property(string Id){
     cout<<"Dummy Property Added\n";
     Properties *Prop = new Properties;
 
@@ -37,17 +37,23 @@ void PropertiesRepo::add_dummy_property(string Id){
     Prop->Status = AVAILABLE;
 
     propVec.insert(propVec.begin(), *Prop);
+    return Prop;
 }
 
 
-void PropertiesRepo::add_new(string id){
+Properties* PropertiesRepo::add_new(string id){
     Properties *Prop = get_property_attributes(id);
     propVec.insert(propVec.begin(), *Prop);
+    return Prop;
 }
 
-void PropertiesRepo::find_all(){
+vector<Properties> PropertiesRepo::find_all(){
+    return propVec;
+}
+
+void PropertiesRepo::display_all(){
     vector<Properties>::iterator it;
-    cout << "\n FIND ALL PROPERTIES\n";
+    cout << "\n Display all Properties \n";
     for (it = propVec.begin(); it != propVec.end(); ++it)
     {
         cout << "ID:\t\t\t\t\t Price:\t\t Latitude:\t Longitude:\t";
@@ -60,4 +66,3 @@ void PropertiesRepo::find_all(){
         cout << it->Status <<"\n";
     }
 }
-

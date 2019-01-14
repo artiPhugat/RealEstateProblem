@@ -8,9 +8,10 @@ class PropertiesRepo : public BaseRepo<Properties> {
 
     public:
         Properties *get_by_id(string id);
-        void add_new(string id);
-        void add_dummy_property(string id);
-        void find_all();
+        Properties *add_new(string id);
+        Properties *add_dummy_property(string id);
+        vector<Properties> find_all();
+        void display_all();
 
         ~PropertiesRepo(){
             cout <<"PropertiesRepo Destructor called\n";
